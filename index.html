@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposal for Oluwadara</title>
+    <style>
+        body {
+            background-color: #f0f4f8;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            animation: backgroundMusic 10s infinite;
+        }
+        h1 {
+            color: #5a834c;
+        }
+        .hearts {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: url('heart-animation.gif');
+            width: 100px;
+            height: 100px;
+            animation: float 3s ease-in-out infinite;
+        }
+        button {
+            margin: 10px;
+            padding: 15px 30px;
+            font-size: 20px;
+            background-color: #5a834c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        button:hover {
+            transform: scale(1.1);
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+    </style>
+</head>
+<body>
+    <h1>Will you marry me, Oluwadara?</h1>
+    <div class="hearts"></div>
+    <button onclick="alert('Thank you!')">Yes</button>
+    <button onclick="alert('You make me so happy!')">Yes Daddy</button>
+    <audio autoplay loop>
+        <source src="path/to/your/background-music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+</body>
+</html>
