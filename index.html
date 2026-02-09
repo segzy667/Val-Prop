@@ -1,154 +1,158 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valentine's Proposal</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
-            overflow: hidden;
-        }
-        h1 {
-            font-family: 'Arial', sans-serif;
-            color: #3b6e3a;
-            font-size: 3rem;
-            text-align: center;
-            animation: bounce 1s infinite;
-        }
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-20px);
-            }
-            60% {
-                transform: translateY(-10px);
-            }
-        }
-        .message {
-            font-size: 1.2rem;
-            color: #3d3d3d;
-            margin: 20px;
-            text-align: center;
-        }
-        .button {
-            background-color: #a5d6a7;
-            border: none;
-            border-radius: 5px;
-            color: white;
-            padding: 10px 20px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            margin: 10px;
-            transition: transform 0.2s;
-        }
-        .button:hover {
-            transform: scale(1.1);
-            background-color: #66bb6a;
-        }
-        #success-message {
-            display: none;
-            margin-top: 20px;
-            font-size: 1.5rem;
-            color: #4caf50;
-        }
-        .hearts,
-        .roses {
-            position: absolute;
-            z-index: 0;
-        }
-        .heart {
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            background-color: red;
-            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-            animation: fall 5s infinite;
-        }
-        .rose {
-            position: absolute;
-            width: 40px;
-            height: 40px;
-            background-image: url('path_to_rose_image.png'); /* Add your rose image */
-            background-size: cover;
-            animation: sway 5s infinite;
-        }
-        @keyframes fall {
-            0% {top: -10%;}
-            100% {top: 100%;}
-        }
-        @keyframes sway {
-            0% {transform: translateX(0);}  
-            50% {transform: translateX(10px);}  
-            100% {transform: translateX(0);}  
-        }
-        audio {
-            display: none;
-        }
-    </style>
-</head>
-<body>
-    <h1>Oluwadara 💚</h1>
-    <div class="message">Will you be my Valentine?</div>
-    <button class="button" id="yesButton">Yes</button>
-    <button class="button" id="yesDaddyButton">Yes Daddy</button>
-    <div id="success-message"></div>
-    <audio id="musicPlayer" loop>
-        <source src="path_to_all_of_me_music.mp3" type="audio/mpeg">
-        Your browser does not support the audio tag.
-    </audio>
-
-    <script>
-        const yesButton = document.getElementById('yesButton');
-        const yesDaddyButton = document.getElementById('yesDaddyButton');
-        const successMessage = document.getElementById('success-message');
-        const musicPlayer = document.getElementById('musicPlayer');
-
-        yesButton.onclick = function() {
-            successMessage.innerText = 'Thank you for saying Yes!';
-            successMessage.style.display = 'block';
-            musicPlayer.play();
-        };
-
-        yesDaddyButton.onclick = function() {
-            successMessage.innerText = 'Thank you for saying Yes Daddy!';
-            successMessage.style.display = 'block';
-            musicPlayer.play();
-            // Heart explosion effect
-            const explosion = document.createElement('div');
-            explosion.classList.add('heart');
-            explosion.style.left = `${Math.random() * 100}vw`;
-            explosion.style.top = `${Math.random() * 100}vh`;
-            document.body.appendChild(explosion);
-            setTimeout(() => explosion.remove(), 2000);
-        };
-
-        // Falling hearts animation
-        for (let i = 0; i < 20; i++) {
-            const heart = document.createElement('div');
-            heart.className = 'heart';
-            heart.style.left = `${Math.random() * 100}vw`;
-            heart.style.animationDuration = `${Math.random() * 3 + 5}s`;
-            document.body.appendChild(heart);
-        }
-
-        // Floating roses
-        for (let i = 0; i < 5; i++) {
-            const rose = document.createElement('div');
-            rose.className = 'rose';
-            rose.style.left = `${Math.random() * 100}vw`;
-            rose.style.animationDuration = `${Math.random() * 3 + 5}s`;
-            document.body.appendChild(rose);
-        }
-    </script>
-</body>
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+<meta charset="UTF-8" />  
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>  
+<title>For Oluwadara 💖</title>  
+  
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">  
+  
+<style>  
+    body {  
+        margin: 0;  
+        height: 100vh;  
+        background: linear-gradient(135deg, #0f0c0a, #1c1713);  
+        display: flex;  
+        justify-content: center;  
+        align-items: center;  
+        font-family: 'Poppins', sans-serif;  
+        color: #f5efe6;  
+        overflow: hidden;  
+    }  
+  
+    .card {  
+        background: rgba(255, 255, 255, 0.05);  
+        border-radius: 24px;  
+        padding: 40px;  
+        max-width: 420px;  
+        text-align: center;  
+        box-shadow: 0 0 60px rgba(212, 175, 55, 0.25);  
+        animation: fadeIn 2s ease;  
+        backdrop-filter: blur(12px);  
+    }  
+  
+    h1 {  
+        font-family: 'Playfair Display', serif;  
+        font-size: 2.2rem;  
+        margin-bottom: 10px;  
+        color: #d4af37;  
+    }  
+  
+    p {  
+        font-size: 1rem;  
+        line-height: 1.7;  
+        margin-bottom: 30px;  
+        color: #f0e8dd;  
+    }  
+  
+    .button-container {  
+        display: flex;  
+        gap: 15px;  
+        justify-content: center;  
+        flex-wrap: wrap;  
+    }  
+  
+    button {  
+        background: linear-gradient(135deg, #d4af37, #b8962e);  
+        border: none;  
+        padding: 14px 28px;  
+        border-radius: 50px;  
+        font-size: 1rem;  
+        font-weight: 500;  
+        cursor: pointer;  
+        color: #1a140d;  
+        transition: transform 0.3s ease, box-shadow 0.3s ease;  
+        box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);  
+    }  
+  
+    button:hover {  
+        transform: scale(1.05);  
+        box-shadow: 0 15px 40px rgba(212, 175, 55, 0.6);  
+    }  
+  
+    .hidden {  
+        display: none;  
+    }  
+  
+    .final {  
+        font-family: 'Playfair Display', serif;  
+        font-size: 1.6rem;  
+        color: #d4af37;  
+        animation: fadeIn 1.5s ease;  
+    }  
+  
+    @keyframes fadeIn {  
+        from { opacity: 0; transform: translateY(20px); }  
+        to { opacity: 1; transform: translateY(0); }  
+    }  
+  
+    .hearts {  
+        position: absolute;  
+        width: 100%;  
+        height: 100%;  
+        pointer-events: none;  
+        overflow: hidden;  
+    }  
+  
+    .heart {  
+        position: absolute;  
+        bottom: -20px;  
+        font-size: 18px;  
+        animation: floatUp 8s linear infinite;  
+        opacity: 0.6;  
+    }  
+  
+    @keyframes floatUp {  
+        from { transform: translateY(0); }  
+        to { transform: translateY(-110vh); }  
+    }  
+</style>  
+</head>  
+  
+<body>  
+  
+<div class="hearts"></div>  
+  
+<div class="card" id="card">  
+    <h1>Oluwadara 💖</h1>  
+    <p>  
+        From the moment you stepped into my life,<br>  
+        love became calmer, deeper, and more beautiful.<br><br>  
+        This isn't just a question…    
+        it's a promise of intention, affection, and us.  
+    </p>  
+    <div class="button-container">  
+        <button onclick="acceptLove()">Yes 💚</button>  
+        <button onclick="acceptLove()">Yes Daddy 😘</button>  
+    </div>  
+</div>  
+  
+<div class="card hidden" id="final">  
+    <div class="final">  
+        You're my Valentine 💫<br><br>  
+        Thank you for choosing me.<br><br>  
+        — Daddy ❤️  
+    </div>  
+</div>  
+  
+<script>  
+function acceptLove() {  
+    document.getElementById("card").classList.add("hidden");  
+    document.getElementById("final").classList.remove("hidden");  
+}  
+  
+// Floating hearts  
+const heartsContainer = document.querySelector('.hearts');  
+setInterval(() => {  
+    const heart = document.createElement('div');  
+    heart.className = 'heart';  
+    heart.innerHTML = '💖';  
+    heart.style.left = Math.random() * 100 + 'vw';  
+    heart.style.animationDuration = (6 + Math.random() * 4) + 's';  
+    heartsContainer.appendChild(heart);  
+    setTimeout(() => heart.remove(), 9000);  
+}, 600);  
+</script>  
+  
+</body>  
 </html>
