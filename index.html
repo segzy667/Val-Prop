@@ -3,59 +3,272 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proposal for Oluwadara</title>
+    <title>Oluwadara, Will You Be My Valentine? 💚</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            background-color: #f0f4f8;
-            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #a8c5a0 0%, #d4e8d4 50%, #a8c5a0 100%);
+            min-height: 100vh;
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
-            height: 100vh;
-            animation: backgroundMusic 10s infinite;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
         }
+
+        .container {
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 60px 40px;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            backdrop-filter: blur(10px);
+            animation: slideIn 0.8s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         h1 {
-            color: #5a834c;
-        }
-        .hearts {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: url('heart-animation.gif');
-            width: 100px;
-            height: 100px;
+            font-size: 3em;
+            color: #5a7d5a;
+            margin-bottom: 20px;
             animation: float 3s ease-in-out infinite;
         }
-        button {
-            margin: 10px;
-            padding: 15px 30px;
-            font-size: 20px;
-            background-color: #5a834c;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: transform 0.2s ease;
-        }
-        button:hover {
-            transform: scale(1.1);
-        }
+
         @keyframes float {
-            0%, 100% { transform: translateY(0); }
+            0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-20px); }
+        }
+
+        .message {
+            font-size: 1.8em;
+            color: #7a9d7a;
+            margin: 30px 0;
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        .heart-decoration {
+            font-size: 2em;
+            margin: 20px 0;
+            animation: heartbeat 1s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+        }
+
+        .buttons-container {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 20px 40px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .yes-btn {
+            background: linear-gradient(135deg, #7a9d7a, #5a7d5a);
+            color: white;
+        }
+
+        .yes-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 25px rgba(90, 125, 90, 0.3);
+        }
+
+        .yes-daddy-btn {
+            background: linear-gradient(135deg, #a8c5a0, #8db88d);
+            color: white;
+        }
+
+        .yes-daddy-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 25px rgba(168, 197, 160, 0.3);
+        }
+
+        /* Animated Hearts */
+        .heart {
+            position: fixed;
+            pointer-events: none;
+            animation: float-up 4s ease-in infinite;
+            z-index: 1;
+        }
+
+        @keyframes float-up {
+            0% {
+                opacity: 1;
+                transform: translateY(0) translateX(0) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100vh) translateX(100px) scale(0.5);
+            }
+        }
+
+        /* Rose Animation */
+        .rose {
+            position: fixed;
+            font-size: 3em;
+            animation: sway 4s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .rose1 {
+            bottom: 20px;
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+        .rose2 {
+            bottom: 20px;
+            right: 5%;
+            animation-delay: 1s;
+        }
+
+        @keyframes sway {
+            0%, 100% { transform: rotate(0deg) translateY(0); }
+            50% { transform: rotate(5deg) translateY(-20px); }
+        }
+
+        .success-message {
+            display: none;
+            font-size: 2.5em;
+            color: #5a7d5a;
+            margin-top: 40px;
+            animation: bounce 0.6s ease;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .music-control {
+            margin-top: 30px;
+        }
+
+        audio {
+            width: 200px;
+            height: 30px;
         }
     </style>
 </head>
 <body>
-    <h1>Will you marry me, Oluwadara?</h1>
-    <div class="hearts"></div>
-    <button onclick="alert('Thank you!')">Yes</button>
-    <button onclick="alert('You make me so happy!')">Yes Daddy</button>
-    <audio autoplay loop>
-        <source src="path/to/your/background-music.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
+    <!-- Rose decorations -->
+    <div class="rose rose1">🌹</div>
+    <div class="rose rose2">🌹</div>
+
+    <!-- Main container -->
+    <div class="container">
+        <h1>Oluwadara 💚</h1>
+        <p class="message">Will you be my Valentine?</p>
+        <div class="heart-decoration">💚🌹💚</div>
+        
+        <div class="buttons-container">
+            <button class="yes-btn" onclick="handleYes()">Yes 💚</button>
+            <button class="yes-daddy-btn" onclick="handleYesDaddy()">Yes Daddy 😘</button>
+        </div>
+
+        <div class="success-message" id="successMessage">
+            You just made me the happiest! 💚🌹
+        </div>
+
+        <div class="music-control">
+            <audio id="bgMusic" controls>
+                <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+    </div>
+
+    <script>
+        // Create animated hearts
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '💚';
+            heart.style.left = Math.random() * window.innerWidth + 'px';
+            heart.style.fontSize = (Math.random() * 20 + 20) + 'px';
+            heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+            document.body.appendChild(heart);
+
+            setTimeout(() => heart.remove(), 5000);
+        }
+
+        // Create hearts periodically
+        setInterval(createHeart, 300);
+
+        // Handle Yes button
+        function handleYes() {
+            showSuccess();
+            playMusic();
+        }
+
+        // Handle Yes Daddy button
+        function handleYesDaddy() {
+            showSuccess();
+            playMusic();
+            createMultipleHearts();
+        }
+
+        // Show success message
+        function showSuccess() {
+            const successMsg = document.getElementById('successMessage');
+            successMsg.style.display = 'block';
+            
+            // Create many hearts
+            for (let i = 0; i < 20; i++) {
+                setTimeout(createHeart, i * 100);
+            }
+        }
+
+        // Play background music
+        function playMusic() {
+            const audio = document.getElementById('bgMusic');
+            audio.play().catch(err => console.log('Music ready to play'));
+        }
+
+        // Create multiple hearts at once
+        function createMultipleHearts() {
+            for (let i = 0; i < 30; i++) {
+                setTimeout(createHeart, i * 50);
+            }
+        }
+
+        // Auto-play music on first interaction
+        document.addEventListener('click', () => {
+            playMusic();
+        }, { once: true });
+    </script>
 </body>
 </html>
