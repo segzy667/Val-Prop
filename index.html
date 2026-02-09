@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For Oluwadara 💖</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
     body {
@@ -21,46 +21,67 @@
     }
 
     .card {
-        background: rgba(255, 255, 255, 0.05);
+        background: rgba(255, 255, 255, 0.06);
         border-radius: 24px;
-        padding: 40px;
+        padding: 40px 30px;
         max-width: 420px;
+        width: 90%;
         text-align: center;
         box-shadow: 0 0 60px rgba(212, 175, 55, 0.25);
-        animation: fadeIn 2s ease;
-        backdrop-filter: blur(12px);
+        backdrop-filter: blur(14px);
+        animation: fadeIn 1.8s ease;
     }
 
     h1 {
         font-family: 'Playfair Display', serif;
         font-size: 2.2rem;
-        margin-bottom: 10px;
         color: #d4af37;
+        margin-bottom: 10px;
+    }
+
+    h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.6rem;
+        margin: 25px 0;
     }
 
     p {
-        font-size: 1rem;
+        font-size: 0.95rem;
         line-height: 1.7;
-        margin-bottom: 30px;
-        color: #f0e8dd;
+        color: #eee4d8;
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 25px;
     }
 
     button {
-        background: linear-gradient(135deg, #d4af37, #b8962e);
         border: none;
-        padding: 14px 28px;
+        padding: 14px;
         border-radius: 50px;
         font-size: 1rem;
-        font-weight: 500;
         cursor: pointer;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    .yes {
+        background: linear-gradient(135deg, #d4af37, #b8962e);
         color: #1a140d;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+        box-shadow: 0 10px 30px rgba(212, 175, 55, 0.45);
+    }
+
+    .yes-daddy {
+        background: transparent;
+        color: #d4af37;
+        border: 1px solid #d4af37;
     }
 
     button:hover {
         transform: scale(1.05);
-        box-shadow: 0 15px 40px rgba(212, 175, 55, 0.6);
     }
 
     .hidden {
@@ -74,8 +95,15 @@
         animation: fadeIn 1.5s ease;
     }
 
+    .dramatic {
+        font-size: 1.8rem;
+        line-height: 1.6;
+        color: #f5d88c;
+        text-shadow: 0 0 25px rgba(212,175,55,0.4);
+    }
+
     @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(20px); }
+        from { opacity: 0; transform: translateY(25px); }
         to { opacity: 1; transform: translateY(0); }
     }
 
@@ -84,7 +112,6 @@
         width: 100%;
         height: 100%;
         pointer-events: none;
-        overflow: hidden;
     }
 
     .heart {
@@ -106,32 +133,54 @@
 
 <div class="hearts"></div>
 
-<div class="card" id="card">
+<!-- QUESTION -->
+<div class="card" id="question">
     <h1>Oluwadara 💖</h1>
     <p>
-        From the moment you stepped into my life,<br>
-        love became calmer, deeper, and more beautiful.<br><br>
-        This isn’t just a question…  
-        it’s a promise of intention, affection, and us.
+        From the moment you entered my life,<br>
+        love became intentional, calm, and deep.
     </p>
-    <button onclick="acceptLove()">Will you be my Valentine? 🌹</button>
+
+    <h2>Will you be my Valentine? 🌹</h2>
+
+    <div class="buttons">
+        <button class="yes" onclick="acceptYes()">Yes 💖</button>
+        <button class="yes-daddy" onclick="acceptYesDaddy()">Yes Daddy 😘</button>
+    </div>
 </div>
 
-<div class="card hidden" id="final">
+<!-- SOFT CONFIRMATION -->
+<div class="card hidden" id="soft">
     <div class="final">
         You’re my Valentine 💫<br><br>
-        Thank you for choosing me.<br><br>
+        Soft love. Real intention.<br><br>
+        — Daddy ❤️
+    </div>
+</div>
+
+<!-- DRAMATIC CONFIRMATION -->
+<div class="card hidden" id="dramatic">
+    <div class="final dramatic">
+        You chose me…<br><br>
+        And I choose you —<br>
+        today, intentionally, and always.<br><br>
+        Happy Valentine’s Day, my love 💎<br><br>
         — Daddy ❤️
     </div>
 </div>
 
 <script>
-function acceptLove() {
-    document.getElementById("card").classList.add("hidden");
-    document.getElementById("final").classList.remove("hidden");
+function acceptYes() {
+    document.getElementById("question").classList.add("hidden");
+    document.getElementById("soft").classList.remove("hidden");
 }
 
-// Floating hearts
+function acceptYesDaddy() {
+    document.getElementById("question").classList.add("hidden");
+    document.getElementById("dramatic").classList.remove("hidden");
+}
+
+// floating hearts
 const heartsContainer = document.querySelector('.hearts');
 setInterval(() => {
     const heart = document.createElement('div');
